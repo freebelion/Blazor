@@ -1,7 +1,11 @@
 ﻿<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <!--
+            Başloangıç sayfasındaki h1 öğesi etrafında kenarlık oluşturan
+            bu komut satırını iptal ettim:
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        -->   
     </Found>
     <NotFound>
         <PageTitle>Not found</PageTitle>
