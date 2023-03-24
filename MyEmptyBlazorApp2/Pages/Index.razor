@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<div class="container mt-5 bg-primary rounded border border-dark">
+    <h1 class="m-5 display1 text-light">Blazor Market Uygulaması</h1>
+
+    <div class="row">
+        @foreach (var urun in urunler)
+        {
+            <UrunDetay goruntulenenUrun="@urun" />
+        }
+    </div>
+
+    <button type="button" class="btn btn-light border rounded border-dark m-5"
+            @onclick="UrunEkle">
+        Ürün Ekle
+    </button>
+
+</div>
+
+
+@code {
+    private List<Urun> urunler = new();
+
+    public void UrunEkle()
+    {
+        urunler.Add(new Urun());
+    }
+}

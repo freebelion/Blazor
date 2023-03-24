@@ -1,0 +1,11 @@
+﻿<div class="col-md-3">
+    <div class="card m-2">
+        <h2 class="card-title m-2"><input @bind="goruntulenenUrun.Ad" /></h2>
+        <h3 class="card-footer m-2"><input @bind="goruntulenenUrun.Fiyat" /></h3>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Urun goruntulenenUrun { get; set; }
+}
