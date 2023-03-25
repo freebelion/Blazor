@@ -11,7 +11,7 @@ iyi bildiğim C# programlama diliyle tek sayfalık web uygulamaları
 Bu gruptaki hemen hemen her projeyi **"Blazor Server App Empty"**
 (Blazor Server Boş Uygulama) kalıbıyla oluşturacağım:
 
-![](/Resimler/Resim1.png "Blazor Server Boş Uygulama kalıbının seçimi")
+![](./Resimler/Resim1.png "Blazor Server Boş Uygulama kalıbının seçimi")
 
 Dikkat etmişsinizdir, "blazor" terimiyle yaptığım arama sonucunda
 "Boş" (*Empty*) olmayan Blazor uygulaması kalıpları da var.
@@ -36,7 +36,7 @@ CTRL+F5 ile Release modunda uygulamayı çalıştırdığımda,
 sonra da "boş" uygulamanın sunduğu geçici içeriği
 görüntüleyen bir web sayfası gördüm:
 
-![](/Resimler/Resim2.png "Blazor Server Boş Uygulamasının ilk açılışı")
+![](./Resimler/Resim2.png "Blazor Server Boş Uygulamasının ilk açılışı")
 
 Bu standartlaşmış "Hello, world!" içeriği uygulamın "başlangıç sayfası"
 diyebileceğimiz **Index.razor** sayfasından gelmiştir:
@@ -120,7 +120,7 @@ Açılış sayfası **index.razor** içeriğini aşağıdaki gibi değiştirdim:
 
 Deneme çalıştırmasında sayfa şu şekilde gözüktü:
 
-![](/Resimler/Resim3.png "Blazor Server Boş Uygulamasının ikinci açılışı")
+![](./Resimler/Resim3.png "Blazor Server Boş Uygulamasının ikinci açılışı")
 
 Bu ilk denemeyi daha ileriye götürmeden,
 bu haliyle bırakmaya karar verdim.
@@ -137,17 +137,17 @@ Visual Studio ortamında **Project** (Proje) menüsünden
 **"Export Template"** (Kalıp Oluştur? Sür?) seçeneğini
 tercih ederek yeni kalıbın dayalı olacağı bu ilk projeyi seçtim:
 
-![](/Resimler/Resim4.png "İlk projenin yeni proje kalıbı olarak seçilmesi")
+![](./Resimler/Resim4.png "İlk projenin yeni proje kalıbı olarak seçilmesi")
 
 Sonra da bir isim ve açıklama ekleyerek yeni proje kalıbını oluşturdum:
 
-![](/Resimler/Resim5.png "Yeni proje kalıbı oluşturulması")
+![](./Resimler/Resim5.png "Yeni proje kalıbı oluşturulması")
 
 # MyEmptyBlazorApp1
 
 Bu projeyi ilk projeye dayalı kişisel proje kalıbıyla oluşturdum:
 
-![](/Resimler/Resim6.png "Yeni proje kalıbıyla proje oluşturulması")
+![](./Resimler/Resim6.png "Yeni proje kalıbıyla proje oluşturulması")
 
 > *Evet, proje kalıbına sözcükler arasında boşlukları olan
 bir isim koymalıydım, ama geçti artık.*
@@ -179,7 +179,7 @@ yeni bir proje klasörü oluşturmalıyım.
 
 Hiç bilmeyenler için: Projeye klasör eklemek şöyle yapılıyor:
 
-![](/Resimler/Resim7.png "Projeye klasör eklenmesi")
+![](./Resimler/Resim7.png "Projeye klasör eklenmesi")
 
 Teamüller gereği :-) bu proje klasörüne **"Models"** ismini verdim,
 çünkü nesne modellerini içerecek.
@@ -201,7 +201,7 @@ Artık sıra hayali hisseleri temsil edecek sınıf tanımını
 eklemeye geldi.
 Bu tanımı az önce oluşturduğum "Models" klasörüne ekledim:
 
-![](/Resimler/Resim8.png "Models klasörüne sınıf tanımı eklenmesi")
+![](./Resimler/Resim8.png "Models klasörüne sınıf tanımı eklenmesi")
 
 Bu yeni sınıfın kod dosyası için önerilen geçici isim **Class1.s**
 yerine kendi düşündüğüm **Hisse.cs** ismini uygun gördüm.
@@ -378,7 +378,7 @@ Bu eklemeleri de yapıp uygulamayı çalıştırırsanız
 hayali hisse senetlerinin aşağıdaki resimdeki
 gibi sıralandıklarını göreceksiniz:
 
-![](/Resimler/Resim9.png "Hayali hisse senetlerinin listelenmesi")
+![](./Resimler/Resim9.png "Hayali hisse senetlerinin listelenmesi")
 
 ## MyEmptyBlazorApp2
 
@@ -462,7 +462,7 @@ bir alt öğe ekledim. Yeni bir proje öğesi eklemek için
 "Pages" klasör simgesi üzerinde "Add" > "New Item"
 menü seçeneklerini izledikten sonra "Razor Component" seçeneğini
 tercih ettim ve bu alt öğeye uygun bir isim koydum:
-![](/Resimler/Resim10.png "Ürün ayrıntılarını görüntüleyecek alt öğe eklenmesi")
+![](./Resimler/Resim10.png "Ürün ayrıntılarını görüntüleyecek alt öğe eklenmesi")
 
 ### UrunDetay.razor Öğesinin Düzenlenmesi
 
@@ -505,7 +505,7 @@ Bu nokta çok önemlidir aslında,
 Visual Studio UrunDetay.razor kod dosyasında
 bu referans değişkeninin kaynağı belirsiz diye uyarı veriyordu:
 
-![](/Resimler/Resim11.png "UrunDetay öğesindeki belirsiz referans uyarısı")
+![](./Resimler/Resim11.png "UrunDetay öğesindeki belirsiz referans uyarısı")
 
 Bu uyarıyı ortadan kaldıracak bir önlem almadım ben,
 çünkü her bir **UrunDetay** öğesi için görüntüleyeceği ürünün
@@ -568,7 +568,7 @@ input {
 Çalıştırığım zaman uygulama aşağıdaki gibi gözüküyordu;
 eklemeler ve düzenlemeler bile yaptım:
 
-![](/Resimler/Resim12.png "Bilgi girişine izin veren ürün listeleme uygulaması")
+![](./Resimler/Resim12.png "Bilgi girişine izin veren ürün listeleme uygulaması")
 
 ## BlazorMarket
 
@@ -589,7 +589,7 @@ içeriği var; ana sayfa bazı linklerle açılıyor.
 Soldaki menüden "Counter" (Sayaç) seçeneğini tıklayınca,
 çıkan sayfada tıklandıkça bir sayaç değerini arttıran bir düğme var:
 
-![](/Resimler/Resim13.png "Boş olmayan Blazor Server uygulaması")
+![](./Resimler/Resim13.png "Boş olmayan Blazor Server uygulaması")
 
 Sol menüdeki "Fetch Data" seçeneği de gaipten
 hayali hava durumu verileri alıp getiren bir sayfa açıyor.
