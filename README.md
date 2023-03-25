@@ -569,3 +569,94 @@ input {
 eklemeler ve düzenlemeler bile yaptım:
 
 ![](/Resimler/Resim12.png "Bilgi girişine izin veren ürün listeleme uygulaması")
+
+## BlazorMarket
+
+Bu denememde boş olmayan "Blazor Server App" proje kalıbını kullandım.
+Bu seçim projeye ileride veritabanı bağlantılarında kullanabileceğim
+bir altyapı eklemiş oldu. Ya da ben öyle sanıyorum.
+Çok da önemli de değil; henüz bir veritabanıyla muhatap olacak
+bir uygulama geliştirmeye çalışmıyorum.
+Daha hala arayüz tasarımı konusunda ilerlemeye çalışıyorum.
+
+Her neyse, bu projede pencerelerin görünüm düzenlerini
+(*layout*) ne mavigasyon menülerini içeren bir **Shared** klasörü
+ve bir de veri alışverişi sağlayacak servis tanımlarının
+konacağı bir **Data** klasörü var.
+
+Uygulamanın şimdiki ilk halinde bile bir şeyler yapan
+içeriği var; ana sayfa bazı linklerle açılıyor.
+Soldaki menüden "Counter" (Sayaç) seçeneğini tıklayınca,
+çıkan sayfada tıklandıkça bir sayaç değerini arttıran bir düğme var:
+
+![](/Resimler/Resim13.png "Boş olmayan Blazor Server uygulaması")
+
+Sol menüdeki "Fetch Data" seçeneği de gaipten
+hayali hava durumu verileri alıp getiren bir sayfa açıyor.
+
+### Hazır Gelen İçeriğin Silinmesi
+
+Bu uygulamada ana sayfadaki ankete, sayaç arttıran düğmeye
+ve hayali hava durumu verilerini almaya gerek duymayacağım.
+O nedenle, projenin **Sayfalar** klasöründen
+"Counter.razor" ve "FetchData.razor" dosyalarını,
+**Data** klasöründen de WeatherForecast... diye başlayan
+dosyaları sildim.
+
+Hemen de bilinçsiz iş yapmamın cezasını gördüm.
+Visual Studio artık geçersiz kalan bir referans hakkında
+hata mesajı veriyordu:
+
+```
+The type or namespace name 'Data' does not exist in the namespace 'BlazorMarket' (are you missing an assembly reference?)
+```
+
+Bunun nedeni Data klasörü içeriğini tümden silmiş olmamdı.
+O klasör normalde projeye eklenecek veri sağlama servisleri
+için gerekebilir, yani referansı olmalıdır,
+ama bu uygulamaya şu an için öyle bir yetenek eklemeyeceğim.
+
+Bu nedenle hatanın kaynağı olan Program.cs dosyasının
+başındaki `using BlazorMarket.Data;` referansını
+geçici olarak açıklama satırına dönüştürdüm.
+Hava durumu servisi ekleyen
+```
+builder.Services.AddSingleton<WeatherForecastService>();
+```
+
+komutunu da aynı şekilde gizledim.
+
+"NavMenu.razor" dosyasına gidip, menü seçeneklerini de
+sildim; yalnızca ana sayfaya erişen seçenek kaldı,
+onun da içeriğini değiştirdim:
+
+```
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Market
+            </NavLink>
+        </div>
+    </nav>
+</div>
+```
+
+Ana sayfa Index.razor başlığını da bir önceki boş uygulama
+projemdeki gibi yaptım:
+
+```
+@page "/"
+
+<PageTitle>Market</PageTitle>
+
+<div class="container mt-5 bg-primary rounded border border-dark">
+    <h1 class="m-5 display1 text-light">Blazor Market Uygulaması</h1>
+
+</div>
+```
+
+İlginçtir, ana sayfa tıpkı önceki uygulamadaki gibi gözüküyordu.
+Yani, şimdilik içeriğinde bir *component* yoktu henüz,
+ama en azından Bootstrap sınıf tanımları zaten vardı ki,
+başlık bölümünün görünümü aynıydı.

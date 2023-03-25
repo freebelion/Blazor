@@ -1,0 +1,44 @@
+﻿@if (tbList != null)
+{
+    <ul class="list-group">
+        @foreach (var tb in tbList)
+        {
+            <li class="list-group-item mb-2 @testbankClass(tb)"
+        @onclick="() => SelectTestbank(tb)">
+                <h6>
+                    @tb.Name<br>
+                    <small class="text-muted">
+                        @tb.Description
+                    </small>
+                </h6>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    [Parameter]
+    public TestbankList? tbList { get; set; }
+
+    [Parameter]
+    public Testbank? tbSelected { get; set; }
+
+    private void SelectTestbank(Testbank tb)
+    {
+        if (tbSelected != null) tbSelected.Selected = false;
+        tbSelected = tb;
+        tbSelected.Selected = true;
+        // This is how we report the change in tbSelected parameter.
+        // Index.razor will use the updated reference to display the details of selectedTestbank,
+        // which corresponds to tbSelected parameter of this component.
+        tbSelectedChanged.InvokeAsync(tbSelected);
+    }
+
+    // source for conditional style: https://jonhilton.net/conditional-blazor-css/
+    string testbankClass(Testbank tb) =>
+        tb.Selected ? "bg-warning" : "";
+
+    // source for two-way binding: https://blazor-university.com/components/two-way-binding/
+    [Parameter]
+    public EventCallback<Testbank> tbSelectedChanged { get; set; }
+}
