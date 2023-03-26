@@ -657,6 +657,128 @@ projemdeki gibi yaptım:
 ```
 
 İlginçtir, ana sayfa tıpkı önceki uygulamadaki gibi gözüküyordu.
-Yani, şimdilik içeriğinde bir *component* yoktu henüz,
-ama en azından Bootstrap sınıf tanımları zaten vardı ki,
-başlık bölümünün görünümü aynıydı.
+Yani, en azından Bootstrap sınıf tanımları zaten vardı.
+Proje organizasyonuna bakarsanız, gerçekten de,
+**wwwroot/css** klasöründe **bootstrap.min.css**
+referansını bulacaksınız.
+
+Hatta, uygulama sayfalarında ortak kullanılacak
+stil tanımlarını içeren **site.css** dosyasında da
+önceki boş uygulamada kurtulmaya çalıştığım
+esrarengşz kenarlığı iptal eden şu tanım vardı:
+```
+h1:focus {
+    outline: none;
+}
+```
+
+### Ana Sayfanın Planlanması
+
+Bu uygulamada ürün kategorileri olacak ve
+kategorilere ait ürünler olacak.
+Bunları bir veritabanından almayacağım,
+onu yerine, kodlarla kendi tanımladığım
+nesnelerde oluşan listeleri görüntüleyeceğim.
+
+Kısacası, aşağıdaki gibi bir yerleşim düzeni
+oluşturmayı planladım:
+
+![](./Resimler/Resim14.png "Market uygulaması ana sayfası için yerleşim düzeni")
+
+Bu düzen kullanışlı olacak mı, şu an o konuya girmiyorum.
+Başlangıç olarak bu taslakla işe başlıyorum:
+```
+@page "/"
+
+<PageTitle>Market</PageTitle>
+
+<div class="container mt-5 bg-primary rounded border border-primary h-75 d-inline-block">
+    <h1 class="m-5 display1 text-light">Blazor Market Uygulaması</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="border border-light m-2 rounded rounded-5">
+                <p class="bg-light">Kategoriler</p>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="border border-light m-2 rounded rounded-5">
+                <p class="bg-light">Ürünler</p>
+            </div>
+        </div>
+    </div>
+</div>
+```
+Bu sayfadaki etiketlerde belirtildiği gibi,
+sol sütunda kategoriler listelenecek,
+sol sütunda seçilmiş kategoriye ait ürünler de
+sağ dütunda listelenecektyir.
+
+### Model Sınıfları
+
+Bir ürünü temsil edecek olan sınıf tanımım
+aşağıdaki gibi:
+```
+    public class Urun
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string? ImagePath { get; set; }
+
+        public Urun()
+        {
+            Name = string.Empty;
+        }
+    }
+```
+Bir ürün kategorisini temsil edecek olan sınıf tanımı da şöyle:
+```
+    public class Kategori
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<Urun> Urunler { get; set; }
+
+        public Kategori()
+        {
+            Name = string.Empty;
+            Urunler = new List<Urun>();
+        }
+    }
+```
+
+> Aslında, ileride *Entity Framework* aracılığıyla sınıf tanımlarını
+veri tablolarına dönüştürmeyi düşündüğüme göre,
+kategoriye ait ürünler listesini `virtual ICollection<Urun>` 
+şeklinde tanımlamalıydım.
+O zaman bir kategoriyle bağlantılı ürün kayıtları
+bağlantılı tablodan toparlanıp ait oldukları
+kategori kaydınının altında bir sanal koleksiyon oluştururlardı.
+Şimdilik öyle bir derdim yok;
+öyle bir derdi olan kendisi düzeltsin eksikleri.
+
+
+### Resimlerin Eklenmesi
+
+Bu uygulamada listeleyeceğim hayali ürünler için
+temsili resimler aramıştım.
+https://icon8.com sitesinde bulup hazır kullandığım
+resimlerin linklerini aşağıda sıralıyorum:
+
++ <a target="_blank" href="https://icons8.com/icon/iNCwBXAbgKmw/baguette">Baguette</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/kuKTcGYLm4j8/biscuits">Biscuits</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/16RjD9RQVCUf/bread">Bread</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/FbwaGJPAh2Yz/brezel">Brezel</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/erEevcUCwAMR/hamburger">Hamburger</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/5vw2Fl2rpxRL/hot-dog">Hot Dog</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/Q2fre4pbJjTx/pizza">Pizza</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/RNqrG3huUiNN/taco">Taco</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/nc75M1luTW1N/sandwich">Sandwich</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/s3EqD09UVwX5/apple">Apple</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/zWL7WzI3sC0T/apricot">Apricot</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/LjAILXrCRYc6/banana">Banana</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/pSpJ8f1TAKIZ/citrus">Citrus</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="https://icons8.com/icon/yoflzK7JQMwS/pineapple">Pineapple</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Bu resimler projenin **Images** klasöründedir.
