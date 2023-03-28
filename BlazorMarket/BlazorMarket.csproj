@@ -7,8 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="wwwroot\Images\icons8-apple-48.png" />
+    <None Remove="wwwroot\Images\icons8-apricot-48.png" />
+    <None Remove="wwwroot\Images\icons8-baguette-48.png" />
+    <None Remove="wwwroot\Images\icons8-banana-48.png" />
+    <None Remove="wwwroot\Images\icons8-biscuits-48.png" />
+    <None Remove="wwwroot\Images\icons8-bread-48.png" />
+    <None Remove="wwwroot\Images\icons8-brezel-48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\" />
     <Folder Include="Data\" />
-    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\Images\icons8-apple-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="wwwroot\Images\icons8-citrus-48.png" />
+    <None Include="wwwroot\Images\icons8-hamburger-48.png" />
+    <None Include="wwwroot\Images\icons8-hot-dog-48.png" />
+    <None Include="wwwroot\Images\icons8-pineapple-48.png" />
+    <None Include="wwwroot\Images\icons8-pizza-48.png" />
+    <None Include="wwwroot\Images\icons8-sandwich-48.png" />
+    <None Include="wwwroot\Images\icons8-taco-48.png" />
+    <Resource Include="wwwroot\Images\icons8-apricot-48.png" />
+    <Resource Include="wwwroot\Images\icons8-baguette-48.png" />
+    <Resource Include="wwwroot\Images\icons8-banana-48.png" />
+    <Resource Include="wwwroot\Images\icons8-biscuits-48.png" />
+    <Resource Include="wwwroot\Images\icons8-bread-48.png" />
+    <Resource Include="wwwroot\Images\icons8-brezel-48.png" />
   </ItemGroup>
 
 </Project>

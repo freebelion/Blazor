@@ -9,13 +9,93 @@
         <div class="col-md-4">
             <div class="border border-light m-2 rounded rounded-5">
                 <p class="bg-light">Kategoriler</p>
+
+                <ul class="list-group">
+                    @foreach (var kt in @kategoriler)
+                    {
+                        <li class="list-group-item mb-2"
+                            @onclick="() => KategoriSec(kt)">
+                            <h6> @kt.Ad </h6>
+                        </li>
+                    }
+                </ul>
             </div>
         </div>
 
         <div class="col-md-8">
             <div class="border border-light m-2 rounded rounded-5">
                 <p class="bg-light">Ürünler</p>
+
+                <div class="row">
+                    @foreach (var ur in urunler)
+                    {
+                        <div class="col-md-4">
+                            <div class="card m-2">
+                                <div class="card-header">
+                                    <h6> @ur.Ad </h6>
+                                </div>
+                                <div class="card-body">
+                                    <img src="Images/@ur.Resim" class="w-100"/>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@code {
+    List<Kategori> kategoriler = new();
+    List<Urun> urunler = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await MarketAcmaGorevi();
+    }
+
+    private Task MarketAcmaGorevi()
+    {
+        MarketAc();
+        return Task.CompletedTask;
+    }
+
+    private void MarketAc()
+    {
+        Kategori pastaneReyonu = new Kategori("Bulanjeri");
+
+        pastaneReyonu.Urunler.Add(new Urun("Ekmek", "icons8-bread-48.png"));
+        pastaneReyonu.Urunler.Add(new Urun("Baget", "icons8-baguette-48.png"));
+        pastaneReyonu.Urunler.Add(new Urun("Bisküvi", "icons8-biscuits-48.png"));
+        pastaneReyonu.Urunler.Add(new Urun("Bredzel", "icons8-brezel-48.png"));
+
+        kategoriler.Add(pastaneReyonu);
+
+        Kategori meyveReyonu = new Kategori("Manavyeri");
+
+        meyveReyonu.Urunler.Add(new Urun("Elma", "icons8-apple-48.png"));
+        meyveReyonu.Urunler.Add(new Urun("Kayısı", "icons8-apricot-48.png"));
+        meyveReyonu.Urunler.Add(new Urun("Limon", "icons8-citrus-48.png"));
+        meyveReyonu.Urunler.Add(new Urun("Ananas", "icons8-pineapple-48.png"));
+
+        kategoriler.Add(meyveReyonu);
+
+        Kategori yiyecekReyonu = new Kategori("Hamburgeri");
+
+        yiyecekReyonu.Urunler.Add(new Urun("Hamburger", "icons8-hamburger-48.png"));
+        yiyecekReyonu.Urunler.Add(new Urun("Sosisli Ekmek", "icons8-hot-dog-48.png"));
+        yiyecekReyonu.Urunler.Add(new Urun("Pizza", "icons8-pizza-48.png"));
+        yiyecekReyonu.Urunler.Add(new Urun("Sandviç", "icons8-sandwich-48.png"));
+        yiyecekReyonu.Urunler.Add(new Urun("Tako", "icons8-taco-48.png"));
+
+        kategoriler.Add(yiyecekReyonu);
+    }
+
+    public void KategoriSec(Kategori secilenKategori)
+    {
+        urunler.Clear();
+        urunler.AddRange(secilenKategori.Urunler);
+        StateHasChanged();
+    }
+}

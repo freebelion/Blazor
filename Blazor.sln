@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyEmptyBlazorApp2", "MyEmpt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTestbank", "BlazorTestbank\BlazorTestbank.csproj", "{6506A95E-CF63-4559-AE5E-7DF141D16A52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMarket", "BlazorMarket\BlazorMarket.csproj", "{217B2D4F-C0C6-495E-8B75-AE45853E0D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMarket", "BlazorMarket\BlazorMarket.csproj", "{217B2D4F-C0C6-495E-8B75-AE45853E0D6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
