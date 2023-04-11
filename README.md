@@ -748,15 +748,16 @@ Bir ürün kategorisini temsil edecek olan sınıf tanımı da şöyle:
     }
 ```
 
-> Aslında, ileride *Entity Framework* aracılığıyla sınıf tanımlarını
-veri tablolarına dönüştürmeyi düşündüğüme göre,
-kategoriye ait ürünler listesini `virtual ICollection<Urun>` 
-şeklinde tanımlamalıydım.
+> *Aslında, ileride Entity Framework aracılığıyla sınıf tanımlarını
+veri tablolarına dönüştürmeyi düşündüğüme göre,*
+kategoriye ait ürünler listesini<br>
+`virtual ICollection<Urun>` <br>
+*şeklinde tanımlamalıydım.<br>
 O zaman bir kategoriyle bağlantılı ürün kayıtları
 bağlantılı tablodan toparlanıp ait oldukları
 kategori kaydınının altında bir sanal koleksiyon oluştururlardı.
 Şimdilik öyle bir derdim yok;
-öyle bir derdi olan kendisi düzeltsin eksikleri.
+öyle bir derdi olan kendisi düzeltsin eksikleri.*
 
 
 ### Resimlerin Eklenmesi
@@ -782,3 +783,71 @@ resimlerin linklerini aşağıda sıralıyorum:
 + <a target="_blank" href="https://icons8.com/icon/yoflzK7JQMwS/pineapple">Pineapple</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 Bu resimler projenin **Images** klasöründedir.
+> *Aslında veritabanı bağlantılı projelerde model sınıfları
+   **Data** klasöründe olurlar.*
+
+## Kategori ve Ürün Listelerinin Oluşturulması
+Bu uygulamada henüz veritabanı bağlantısı yok,
+ama sanki varmış da uygulama ilk açılışında
+kategori ve ürün listelerini veritabanından
+alıp geliyormuş gibi olsun diyoruz.
+
+Dolayısıyla,
+```
+private void MarketAc()
+```
+adlı fonksiyonda kategori tanımları oluşturduk
+ve onlara bazı ürün tanımları ekledik:
+```
+Kategori pastaneReyonu = new Kategori("Bulanjeri");
+
+pastaneReyonu.Urunler.Add(new Urun("Ekmek", "icons8-bread-48.png"));
+pastaneReyonu.Urunler.Add(new Urun("Baget", "icons8-baguette-48.png"));
+pastaneReyonu.Urunler.Add(new Urun("Bisküvi", "icons8-biscuits-48.png"));
+pastaneReyonu.Urunler.Add(new Urun("Bredzel", "icons8-brezel-48.png"));
+```
+
+Bu fonksiyonu uygulamanın ana sayfası **Index.razor** 
+kod dosyasındaki **@code{ }** blokunda bulacaksınız.
+
+Ama bu fonksiyonu uygulamanın ilk açılışında çalıştırmamız
+gerekir ki oluşturduğumuz market reyonları ana sayfada listelensinler.
+
+Bir Blazor server uygulamasının açılışında yaptırılacak işleri<br>
+`OnInitializedAsync()`<br>
+adlı fonksiyonda yaptırmalıyız.
+
+Bu fonksiyon normalde uygulamanın gerektyirdiği standart
+başlangıç işlemlerini gerçekleştirir.
+Biz kendi uygulamamızda onunla farklı işlemler yaptırmak
+istiyorsak, onu **override** etiketiyle yeniden tanımlamalıyız:
+```
+    protected override async Task OnInitializedAsync()
+    {
+        await MarketAcmaGorevi();
+    }
+
+    private Task MarketAcmaGorevi()
+    {
+        MarketAc();
+        return Task.CompletedTask;
+    }
+```
+
+Yeniden tanımladığımız başlangıç fonksiyonunda
+"görev" (**Task**) gerçekleştirecek ilk fonksiyonları
+çağırabiliriz. Bu uygulama örneğinde **MarketAcmaGorevi()**
+diye kendi görev fonksiyonumuzu çağırttık.
+
+> *Bu uygulamanın açılış fonksiyonu
+   market açan görev fonksiyonu çağırıyor,
+   ama iş akışını ona devretmiyor,
+   ondan sonuç bekliyor (**await**).<br>
+   Web uygulamaları sıradan masaüstü uygulamalardaki
+   gibi tek bir iş akışıyla yürümeyen,
+   "asenkronize" uygulamalardır.*
+
+Uygulama ilk açıldığında sanal marketin 
+tanımlanmış ürünleri sergileniyor olacaktır:
+
+![](./Resimler/Resim16.png "Market uygulaması ilk açılış")
