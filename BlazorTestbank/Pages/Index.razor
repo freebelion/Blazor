@@ -1,0 +1,26 @@
+﻿@using BlazorTestbank.Data
+@inject TestbankDbService tbdbService
+
+@page "/"
+
+<PageTitle>Testbanks</PageTitle>
+
+<div class="container mt-5 bg-primary rounded border border-dark">
+    <h1 class="m-2 display1 text-light text-center">
+        Blazor Testbank App
+    </h1>
+
+    <div class="row">
+        <div class="col-md-4 p-2">
+            <TestbanksListComponent tbanks="@TbList"/>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<Testbank>? TbList;
+    protected override async Task OnInitializedAsync()
+    {
+        TbList = await Task.Run(() => tbdbService.GetAllTestbanksAsync());
+    }
+}

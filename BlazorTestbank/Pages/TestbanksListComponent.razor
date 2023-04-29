@@ -1,0 +1,26 @@
+﻿@using BlazorTestbank.Data
+
+@if (tbanks != null)
+{
+    <div class="border border-light m-2 rounded rounded-5">
+        <h2 class="display2 text-light text-center">Testbanks</h2>
+        <ul class="list-group">
+            @foreach (var tb in tbanks)
+            {
+                <li class="list-group-item mt-1">
+                    <h6>
+                        @tb.Name<br>
+                        <small class="text-muted">
+                            @tb.Description
+                        </small>
+                    </h6>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public List<Testbank>? tbanks { get; set; }
+}
