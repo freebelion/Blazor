@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resimler\**" />
+    <Content Remove="Resimler\**" />
+    <EmbeddedResource Remove="Resimler\**" />
+    <None Remove="Resimler\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="wwwroot\Images\icons8-apple-48.png" />
     <None Remove="wwwroot\Images\icons8-apricot-48.png" />
     <None Remove="wwwroot\Images\icons8-baguette-48.png" />
