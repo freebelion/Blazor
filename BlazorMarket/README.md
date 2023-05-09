@@ -10,7 +10,7 @@ Daha hala arayüz tasarımı konusunda ilerlemeye çalışıyorum.
 Her neyse, bu projede pencerelerin görünüm düzenlerini
 (*layout*) ne mavigasyon menülerini içeren bir **Shared** klasörü
 ve bir de veri alışverişi sağlayacak servis tanımlarının
-konacağı bir **Data** klasörü var.
+konacağı bir **Data** klasörü var. 
 
 Uygulamanın şimdiki ilk halinde bile bir şeyler yapan
 içeriği var; ana sayfa bazı linklerle açılıyor.
