@@ -5,7 +5,7 @@ Bu seçimle oluşturduğum ilk uygulama için Visual Studio
 hepsini sorgusuz kabul ettim.
 > *Keşif yapıyorsam da her adımda yeni bir macera arıyor değilim.*
 
-## Açılış Sayfası
+## Açılış Sayfası 
 
 Projede neyin nerede olduğuna bile bakmadan
 CTRL+F5 ile Release modunda uygulamayı çalıştırdığımda,

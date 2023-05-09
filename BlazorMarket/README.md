@@ -20,7 +20,7 @@ Soldaki menüden "Counter" (Sayaç) seçeneğini tıklayınca,
 ![](./Resimler/Resim13.png "Boş olmayan Blazor Server uygulaması")
 
 Sol menüdeki "Fetch Data" seçeneği de gaipten
-hayali hava durumu verileri alıp getiren bir sayfa açıyor.
+hayali hava durumu verileri alıp getiren bir sayfa açıyor. 
 
 ## Hazır Gelen İçeriğin Silinmesi
 

@@ -12,7 +12,7 @@ tek yapmam gereken şey ürün adı ve fiyatını başlık öğelerinde
 görüntülemek yerine elle bilgi girişine izin veren
 **input** öğelerinde göstermekti.
 Blazor'ın **@bind** direktifi sayesinde **input** öğelerinde
-girilen bilgiler ürün adları ve fiyatlarına yansıyacaktı.
+girilen bilgiler ürün adları ve fiyatlarına yansıyacaktı. 
 
 ## Alt Öğeler (Component) Ne İşe Yarar
 

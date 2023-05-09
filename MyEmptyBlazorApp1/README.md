@@ -9,7 +9,7 @@ bir isim koymalıydım, ama geçti artık.*
 
 Oluşturduğum proje kalıbının ilk örneği olduğu için
 başlıktaki ismi aldı; her zamanki uysallığımla ismi
-değiştirmeden kabul ettim.
+değiştirmeden kabul ettim. 
 
 **EmptyBlazorApp1** için yapmış olduğum tüm değişiklikler
 bu projede aynen yer alıyordu. Hatta **bootstrap.css** dosyasıda

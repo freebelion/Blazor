@@ -9,7 +9,7 @@ bir Blazor sunucu uygulaması oluşturuyorum.
 Daha önce başladığım 
 [**AngularTest**](https://github.com/freebelion/AngularTest)
 web uygulamasının Blazor versiyonunu
-oluşturmayı hedefliyorum.
+oluşturmayı hedefliyorum. 
 
 Tıpkı **AngularTest** uygulamasındaki gibi,
 önce soru bankalarını, soruları ve seçenekleri

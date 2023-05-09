@@ -9,7 +9,7 @@ iyi bildiğim C# programlama diliyle tek sayfalık web uygulamaları
 (*single page web applications*) oluşturmak.
 
 Bu gruptaki hemen hemen her projeyi **"Blazor Server App Empty"**
-(Blazor Server Boş Uygulama) kalıbıyla oluşturacağım:
+(Blazor Server Boş Uygulama) kalıbıyla oluşturacağım: 
 
 ![](./Resimler/Resim1.png "Blazor Server Boş Uygulama kalıbının seçimi")
 
