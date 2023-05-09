@@ -29,7 +29,7 @@ Bu uygulamanın herhangi bir işlevi yok.
 # MyEmptyBlazorApp1
 
 İlk denemeyle oluşturduğum boş uygulama kalıbına dayalı
-olan bu uygulamada hayali hisse senetlerini listeletiyorum.
+olan bu uygulamada hayali hisse senetlerini  listeletiyorum.
 
 # MyEmptyBlazorApp2
 
