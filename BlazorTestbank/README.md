@@ -477,6 +477,6 @@ ekleyebiliriz:
 ```
 
 Uygulamayı çalıştırdığımızda (varsa) veritabanındaki
-soru bankası kayıtları aşağıdaki gibi listelenmiş olacaktır: 
+soru bankası kayıtları aşağıdaki gibi listelenmiş olacaktır:
 
 ![](./Resimler/Resim18.png "BlazorTestbank soru bankalarının görüntülenmesi")
